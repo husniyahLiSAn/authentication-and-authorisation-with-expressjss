@@ -60,7 +60,7 @@ To address the second challenge, here's how I would structure the explanation in
 ---
 
 ## Understanding the Delete User Functionality: Authentication vs. Authorization
-
+![Delete User Function](delete-func.png)
 ### Introduction
 
 When building secure web applications, it’s crucial to understand the distinct roles that **authentication** and **authorization** play. This section will explore whether the requirement "This delete user functionality can be done after authentication" is a good idea, and clarify why these concepts should not be confused.

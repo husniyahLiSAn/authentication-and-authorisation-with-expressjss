@@ -13,8 +13,7 @@ const tokenVerification = (req, res, next) => {
     }
     try {
         const decoded = jwt.verify(token, config.TOKEN_KEY);
-        user = decoded.user.account_type;
-        //req.user = decoded;
+        req.user = decoded;
     } catch (err) {
         console.log("Failed to authenticate token.");
         return res.status(401).send({

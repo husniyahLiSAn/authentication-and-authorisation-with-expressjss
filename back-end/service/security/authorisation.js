@@ -7,22 +7,22 @@ const authorisation = (role) => {
     return (req, res, next) => {
         let user = req.signedCookies;
         const xAccessToken = user?.user?.token;
-        console.log("Access Token", xAccessToken);
-        if (xAccessToken) {
-            const decoded = jwt.verify(xAccessToken, config.TOKEN_KEY);
-            user = decoded.account_type;
-            if (convertToRole(user) >= convertToRole(role)) {
-                return next();
-            }
-        }
+		console.log("Access Token", xAccessToken);
+		if (xAccessToken) {
+			const decoded = jwt.verify(xAccessToken, config.TOKEN_KEY);
+			user = decoded.user.account_type;
+			if (convertToRole(user) >= convertToRole(role)) {
+				return next();
+			}
+		}
         console.log("Not authorised.");
-
-        return res.status(401).send({
-            auth: false,
-            message: "You are not authorised to access this page.",
-            status: 401,
-            payload: null,
-        });
+		
+		return res.status(401).send({
+			auth: false,
+			message: "You are not authorised to access this page.",
+			status: 401,
+			payload: null,
+		});
 
     };
 };

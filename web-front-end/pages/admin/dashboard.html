@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../../styles/styles.css">
 </head>
-
 <body>
     <h1>Admin Dashboard</h1>
     <table id="users-table" border="1">
@@ -25,8 +23,8 @@
 
     <script>
         async function loadUsers() {
-            const response = await fetch('http://127.0.0.1:5500/admin/user', {
-                credentials: "include"
+            const response = await fetch('http://127.0.0.1:4001/admin/user',{
+                credentials:"include"
             });
             const users = (await response.json())?.payload;
             if (!users) {
@@ -53,5 +51,4 @@
         loadUsers();
     </script>
 </body>
-
 </html>
